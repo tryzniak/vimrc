@@ -65,6 +65,10 @@ set ignorecase
 " Smart case-sensivity
 set smartcase
 
+" Enable omnifunc
+filetype plugin on
+"set omnifunc=syntaxcomplete#Complete
+
 " Install vim-plug if it's not there
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -79,7 +83,22 @@ Plug 'junegunn/fzf.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim', { 'for': 'go' }
+  Plug 'roxma/nvim-yarp', { 'for': 'go' }
+  Plug 'roxma/vim-hug-neovim-rpc', { 'for': 'go' }
+endif
+let g:deoplete#enable_at_startup = 1
 call plug#end()
+if has('deoplete')
+  call deoplete#custom#option('auto_complete', v:false)
+  call deoplete#custom#option('complete_method', 'omnifunc')
+endif
+" Don't show a preview window
+set completeopt-=preview
 
 nmap <Leader>f :Files<CR>
 nmap <Leader>a :ALEFix<CR>
