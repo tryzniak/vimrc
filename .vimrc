@@ -84,6 +84,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'SirVer/ultisnips'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -97,6 +98,11 @@ if has('deoplete')
   call deoplete#custom#option('auto_complete', v:false)
   call deoplete#custom#option('complete_method', 'omnifunc')
 endif
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Use goimports with vim-go
+let g:go_fmt_command = "goimports"
 " Don't show a preview window
 set completeopt-=preview
 
