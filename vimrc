@@ -92,15 +92,10 @@ let g:go_fmt_command = "goimports"
 set completeopt-=preview
 
 nmap <Leader>f :Files<CR>
-nmap <Leader>a :ALEFix<CR>
 
 " Enable Emmet for specific filetypes
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,js,jsx EmmetInstall
-
-" Enable Prettier in Vim using Ale
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint']
 
 let g:fzf_colors=
       \ { 'fg':      ['fg', 'Normal'],
