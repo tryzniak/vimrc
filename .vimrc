@@ -65,9 +65,7 @@ set ignorecase
 " Smart case-sensivity
 set smartcase
 
-" Enable omnifunc
 filetype plugin on
-"set omnifunc=syntaxcomplete#Complete
 
 " Install vim-plug if it's not there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -82,22 +80,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'mattn/emmet-vim'
-Plug 'w0rp/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'SirVer/ultisnips'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim', { 'for': 'go' }
-  Plug 'roxma/nvim-yarp', { 'for': 'go' }
-  Plug 'roxma/vim-hug-neovim-rpc', { 'for': 'go' }
-endif
-let g:deoplete#enable_at_startup = 1
 call plug#end()
-if has('deoplete')
-  call deoplete#custom#option('auto_complete', v:false)
-  call deoplete#custom#option('complete_method', 'omnifunc')
-endif
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
