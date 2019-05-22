@@ -1,3 +1,4 @@
+" Visual highlight to be white on black
 highlight Visual cterm=bold ctermbg=black ctermfg=White
 
 " Equalize split when Vim is resized
@@ -38,22 +39,17 @@ set nowrap
 " Visually show when approaching 80 characters boundary
 set colorcolumn=81
 
+" Allow 256 color schemes
 if $TERM == "xterm-256color"
   set t_Co=256
 endif
 
-" colorscheme cake
-" set background=light
-
-" Show invisibles
-" set list
-" set listchars=tab:»-,trail:·,eol:¬
-
-" Indent with spaces
+" Indent with spaces by default
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" Indent go with tabs
 autocmd FileType go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " Enable incremental search
@@ -73,6 +69,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 " Fuzzy search files in Vim
@@ -83,11 +80,15 @@ Plug 'mattn/emmet-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'SirVer/ultisnips'
 call plug#end()
+
+" Setup UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " Use goimports with vim-go
 let g:go_fmt_command = "goimports"
+
 " Don't show a preview window
 set completeopt-=preview
 
