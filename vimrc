@@ -89,8 +89,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Use goimports with vim-go
 let g:go_fmt_command = "goimports"
 
-" Don't show a preview window
-set completeopt-=preview
+" Use gopls with vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
 nmap <Leader>f :Files<CR>
 
