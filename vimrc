@@ -78,13 +78,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'mattn/emmet-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'SirVer/ultisnips'
 call plug#end()
-
-" Setup UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Use goimports with vim-go
 let g:go_fmt_command = "goimports"
