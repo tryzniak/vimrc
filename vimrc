@@ -91,6 +91,7 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
 nmap <Leader>f :Files<CR>
+nmap <Leader>rg :Rg<CR>
 
 " Enable Emmet for specific filetypes
 let g:user_emmet_install_global = 0
